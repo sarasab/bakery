@@ -1,25 +1,45 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import 'bootstrap/dist/css/bootstrap.min.css'
+import Onglet from './components/Onglet'
+import Add from './components/add'
+class App extends React.Component {
+  constructor () {
+    super()
+    this.state = {
+      activeTab: 'add',
+      items: [],
+    }
+  }
+  render () {
+    return (
+      <div className="App">
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+        
+        <Onglet 
+        isSelected={this.state.activeTab === 'add'}
+        onClick={()=> this.setState({activeTab: 'add'})}>
+          Add
+        </Onglet>
+
+        <Onglet 
+        isSelected={this.state.activeTab === 'list'}
+        onClick={()=> this.setState({activeTab: 'list'})}>
+          List
+        </Onglet>
+
+        <Onglet 
+        isSelected={this.state.activeTab === 'pay'}
+        onClick={()=> this.setState({activeTab: 'pay'})}>
+          Pay
+        </Onglet>
+
+        {this.state.activeTab === 'add' && <Add/>}
+        {this.state.activeTab === 'list' && <List/>}
+        {this.state.activeTab === 'pay' && <Pay/>}
+      </div>
+    )
+  }
 }
+export default App
 
-export default App;
