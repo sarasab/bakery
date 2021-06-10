@@ -21,14 +21,18 @@ class add extends React.Component {
         <input
           type="text"
           onChange={this.updateProductName}
+         
           className="form-control"
         />
+         
         <input
           type="range"
           onChange={this.updatePrice}
+          
           className="form-range"
         />
-        <button className="btn btn-primary">Add</button>
+        <button className="btn btn-primary"  onClick={()=>this.props.addItem(this.state.productName,this.state.price)} >Add </button>
+       
       </div>
     );
   }

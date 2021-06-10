@@ -14,7 +14,7 @@ class Onglet extends React.Component {
         type="button"
         className={this.props.isSelected ? 'btn btn-primary': 'btn btn-dark'}
         onClick={this.props.onClick}>
-         {this.props.children}
+        {this.props.children}
       </button>
     )
   }

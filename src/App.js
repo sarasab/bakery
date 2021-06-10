@@ -8,9 +8,14 @@ class App extends React.Component {
     super();
     this.state = {
       activeTab: 'add',
-      items = addItem [{name:xx , price:xx}],
+      items: [],
     };
   }
+
+  addItem = (name, price) => {
+    this.setState({items: [...this.state.items, {name, price}]});
+  };
+
   render() {
     return (
       <div className="App">
@@ -32,10 +37,9 @@ class App extends React.Component {
         >
           Pay
         </Onglet>
-        {this.state.activeTab === 'add' && <Add />}
+        {this.state.activeTab === 'add' && <Add addItem={this.addItem} />}
         {this.state.activeTab === 'list' && <List />}
         {this.state.activeTab === 'pay' && <Pay />}
-       
       </div>
     );
   }
