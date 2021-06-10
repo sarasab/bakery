@@ -1,13 +1,36 @@
-import React from 'react'
+import React from 'react';
 class add extends React.Component {
-  render () {
+  constructor() {
+    super();
+    this.state = {
+      productName: '',
+      price: 1,
+    };
+  }
+  updateProductName = (event) => {
+    this.setState({productName: event.target.value});
+  };
+
+  updatePrice = (event) => {
+    this.setState({price: event.target.value});
+  };
+
+  render() {
     return (
       <div>
-        add
-        list
-        pay
+        <input
+          type="text"
+          onChange={this.updateProductName}
+          className="form-control"
+        />
+        <input
+          type="range"
+          onChange={this.updatePrice}
+          className="form-range"
+        />
+        <button className="btn btn-primary">Add</button>
       </div>
-    )
+    );
   }
 }
-export default add
+export default add;
